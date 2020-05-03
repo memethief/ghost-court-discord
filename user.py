@@ -86,3 +86,44 @@ class UserCog(commands.Cog, name="Commands"):
 
         debug('Finished adding to queues')
         await ctx.send(list_user_queue(user))
+
+    @commands.command(name='dq')
+    async def dequeue(ctx, *roles):
+        '''
+        Remove yourself from a queue or queues
+        
+        By itself this command will remove you from all queues.
+        You can limit this to specific queues by following the
+        command with one or more role names. For example, if
+        you want to be removed from the defendant and reporter
+        queues but keep your place in all other queues, you may
+        type:
+
+            !dq plaintiff reporter
+
+        You may also use aggregate role names here.
+        '''
+        debug('Got request to dequeue from {0}', roles)
+        user = ctx.author
+
+        if len(roles) == 0:
+            debug("Let's dequeue everywhere!")
+            roles = ['all']
+
+        for role in translate_roles(roles):
+            debug("Processing role {0}", role)
+            q = qs.get(role)
+            
+            if q == None:
+                debug('Bad role {0} requested', role)
+                continue
+
+            if not user in q:
+                debug('User {0} not in {1} queue', user, role)
+                continue
+            
+            debug("Removing user from queue")
+            q.remove(user)
+
+        debug('Finished removing from queues')  
+        await ctx.send(list_user_queue(user))
