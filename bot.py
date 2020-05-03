@@ -40,6 +40,43 @@ async def poc(ctx, *args):
     
     await ctx.send(response)
 
+''' Helper function '''
+
+def translate_roles(roles):
+    '''
+    Look for special role names in the list of roles and return a modified
+    list with those names expanded
+    '''
+    debug("translating roles {0}...", roles)
+    new_roles = set()
+    for role in roles:
+        role = role.lower()
+        if role == 'all':
+            new_roles = qs.keys()
+            break
+        elif role == 'litigant':
+            new_roles.add('plaintiff')
+            new_roles.add('defendant')
+        elif role == 'officer':
+            new_roles.add('judge')
+            new_roles.add('clerk')
+            new_roles.add('reporter')
+        else:
+            new_roles.add(role)
+
+    debug("...translated to {0}", new_roles)
+    return new_roles
+
+# Queues 
+qs = {
+    'plaintiff': [],
+    'defendant': [],
+    'judge': [],
+    'reporter': [],
+    'clerk': [],
+    'bailiff': []
+}
+
 # Debug
 
 def debug(message, *args):
@@ -50,4 +87,7 @@ def debug_obj(obj):
 
 ''' Run bot, run! '''
 
+import user
+
+bot.add_cog(user.UserCog(bot))
 bot.run(TOKEN)
