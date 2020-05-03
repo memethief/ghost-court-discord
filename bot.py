@@ -40,6 +40,29 @@ async def poc(ctx, *args):
     
     await ctx.send(response)
 
+# Other actions
+
+def list_user_queue(user):
+    '''
+    Given a user object, if the user corresponds 
+    '''
+    debug("Listing queues for user: {0}", user)
+    
+    listing = []
+    for role, q in qs.items():
+        if user in q:
+            listing.append('- {0}: at most {1} people ahead of you'.format(role.capitalize(), q.index(user)))
+
+    if len(listing) == 0:
+        listing.append('**{0} is in no queues**'.format(user.mention))
+    else:
+        listing.insert(0,'**{0} is in the following queues:**'.format(user.mention))
+
+    response = '\n'.join(listing)
+    debug('Message to send:')
+    debug(response)
+    return response
+
 ''' Helper function '''
 
 def translate_roles(roles):
