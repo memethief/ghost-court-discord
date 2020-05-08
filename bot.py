@@ -26,7 +26,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
     else:
-        await ctx.send('Unknown error: {0}', error)
+        await ctx.send('Unknown error: {0}'.format(error))
         
 # Commands
 
