@@ -14,7 +14,7 @@ class UserCog(commands.Cog, name="Commands"):
         ghostcourt.debug("User cog started")
 
     @commands.command(name='cq')
-    async def list_queue(ctx, *args):
+    async def list_queue(self, ctx, *args):
         '''
         List contents of queues
 
@@ -57,7 +57,7 @@ class UserCog(commands.Cog, name="Commands"):
             await ctx.send(msg)
 
     @commands.command(name='q')
-    async def enqueue(ctx, *roles):
+    async def enqueue(self, ctx, *roles):
         '''
         Add yourself to a queue or queues
         
@@ -82,7 +82,7 @@ class UserCog(commands.Cog, name="Commands"):
         await ctx.send(ghostcourt.list_user_queue(user))
 
     @commands.command(name='dq')
-    async def dequeue(ctx, *roles):
+    async def dequeue(self, ctx, *roles):
         '''
         Remove yourself from a queue or queues
         
