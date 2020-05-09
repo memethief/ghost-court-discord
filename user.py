@@ -19,6 +19,15 @@ class UserCog(commands.Cog, name="Commands"):
         By default, list all active queues you have joined.
         This will include information about how many people
         are ahead of you.
+        
+        If you want to see the complete queue for one or more
+        roles, include the role name(s) after the command,
+        separated by spaces. For example, to see the Judge and
+        Clerk queues, you can enter the following:
+
+            !cq judge clerk
+
+        You may also use aggregate role names here.
         '''
         debug('listing queues with args:')
         debug_obj(args)
