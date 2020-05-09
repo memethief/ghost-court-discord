@@ -2,6 +2,7 @@
 import os
 import random
 import discord
+import ghostcourt
 
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -31,113 +32,14 @@ async def on_command_error(ctx, error):
 
 @bot.command(name='poc', hidden=True)
 async def poc(ctx, *args):
-    debug("Proof of concept. args:")
-    debug_obj(args)
-    debug("Author:")
+    ghostcourt.debug("Proof of concept. args:")
+    ghostcourt.debug_obj(args)
+    ghostcourt.debug("Author:")
     pprint(ctx.author)
 
     response = 'Hello {0} how are you?'.format(ctx.author.mention)
     
     await ctx.send(response)
-
-# Other actions
-
-def list_user_queue(user):
-    '''
-    Given a user object, if the user corresponds 
-    '''
-    debug("Listing queues for user: {0}", user)
-    
-    listing = []
-    for role, q in qs.items():
-        if user in q:
-            listing.append('- {0}: at most {1} people ahead of you'.format(role.capitalize(), q.index(user)))
-
-    if len(listing) == 0:
-        listing.append('**{0} is in no queues**'.format(user.mention))
-    else:
-        listing.insert(0,'**{0} is in the following queues:**'.format(user.mention))
-
-    response = '\n'.join(listing)
-    debug('Message to send:')
-    debug(response)
-    return response
-
-def add_case(user, cases):
-    '''
-    Given a case number, add that case to the case queue
-    '''
-    pass
-
-def next_case(user, args):
-    '''
-    Close out the current case and start a new one. This involves:
-    - Remove litigant roles
-    - If an officer is to step down, remove their role
-    - Assign new litigant roles
-    - Fill vacant officer roles
-    - Announce the new case
-    '''
-    debug("Ending current case")
-    debug("Loading new case")
-    debug("Assigning new roles")
-    pass
-
-''' Helper function '''
-
-def translate_roles(roles):
-    '''
-    Look for special role names in the list of roles and return a modified
-    list with those names expanded
-    '''
-    debug("translating roles {0}...", roles)
-    new_roles = set()
-    for role in roles:
-        role = role.lower()
-        if role == 'all':
-            new_roles = qs.keys()
-            break
-        elif role == 'litigant':
-            new_roles.add('plaintiff')
-            new_roles.add('defendant')
-        elif role == 'officer':
-            new_roles.add('judge')
-            new_roles.add('clerk')
-            new_roles.add('reporter')
-        else:
-            new_roles.add(role)
-
-    debug("...translated to {0}", new_roles)
-    return new_roles
-
-# Queues 
-
-qs = {
-    'plaintiff': [],
-    'defendant': [],
-    'judge': [],
-    'reporter': [],
-    'clerk': [],
-    'bailiff': [],
-}
-
-cases = []
-current_case = {
-    'docketNumber': None,
-    'plaintiffName': None,
-    'plaintiffUser': None,
-    'defendantName': None,
-    'defendantUser': None,
-    'judgeUser': None,
-}
-
-# Debug
-
-def debug(message, *args):
-    print(message.format(*args), flush=True)
-
-def debug_obj(obj):
-    print(obj, flush=True)
 
 ''' Run bot, run! '''
 

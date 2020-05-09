@@ -1,9 +1,11 @@
 # Bailiff cog
 from discord.ext import commands
+import ghostcourt
 
 class BailiffCog(commands.Cog, name="Bailiff commands"):
     def __init__(self, bot):
         self.bot = bot
+        ghostcourt.debug("Clerk cog started")
 
     @commands.has_role('Bailiff')
     @commands.command(name='qser', help='Add a user to queues')

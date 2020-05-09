@@ -1,5 +1,6 @@
 # General user cog
 from discord.ext import commands
+import ghostcourt
 
 class UserCog(commands.Cog, name="Commands"):
     '''
@@ -10,6 +11,7 @@ class UserCog(commands.Cog, name="Commands"):
     '''
     def __init__(self, bot):
         self.bot = bot
+        ghostcourt.debug("User cog started")
 
     @commands.command(name='cq')
     async def list_queue(ctx, *args):
@@ -19,7 +21,7 @@ class UserCog(commands.Cog, name="Commands"):
         By default, list all active queues you have joined.
         This will include information about how many people
         are ahead of you.
-        
+
         If you want to see the complete queue for one or more
         roles, include the role name(s) after the command,
         separated by spaces. For example, to see the Judge and
@@ -29,26 +31,29 @@ class UserCog(commands.Cog, name="Commands"):
 
         You may also use aggregate role names here.
         '''
-        debug('listing queues with args:')
-        debug_obj(args)
+        print('cq', flush=True)
+        ghostcourt.debug('listing queues with args:')
+        ghostcourt.debug_obj(args)
 
         msg_response = list()
 
         try:
             if len(args) == 0:
-                debug("zero args -- listing for user {0}", ctx.author)
-                msg_response.append(list_user_queue(ctx.author))
+                ghostcourt.debug("zero args -- listing for user {0}", ctx.author)
+                msg_response.append(ghostcourt.list_user_queue(ctx.author))
 
             else:
-                debug("{0} args", len(args))
+                ghostcourt.debug("{0} args", len(args))
+                for arg in args:
+                    msg_response.append(ghostcourt.list_role_queue(arg))
                 # iterate
                 pass
-        except e:
-            debug("Whoops...")
-            debug_obj(e)
+        except Exception as e:
+            ghostcourt.debug("Whoops...")
+            ghostcourt.debug_obj(e)
 
         for msg in msg_response:
-            debug("sending message...")
+            ghostcourt.debug("sending message...")
             await ctx.send(msg)
 
     @commands.command(name='q')
@@ -71,30 +76,10 @@ class UserCog(commands.Cog, name="Commands"):
         want to move to the back of a queue you must use !dq,
         followed by !q.
         '''
-        debug('Got request to enqueue for {0}', roles)
+        ghostcourt.debug('Got request to enqueue for {0}', roles)
         user = ctx.author
-
-        if len(roles) == 0:
-            debug("Let's enqueue everywhere!")
-            roles = ['all']
-
-        for role in translate_roles(roles):
-            debug("Processing role {0}", role)
-            q = qs.get(role)
-
-            if q == None:
-                debug('Bad role {0} requested', role)
-                continue
-
-            if user in q:
-                debug('User {0} already in {1} queue', user, role)
-                continue
-
-            debug("Appending user to {0} queue", role)
-            q.append(user)
-
-        debug('Finished adding to queues')
-        await ctx.send(list_user_queue(user))
+        ghostcourt.enqueue(user, roles)
+        await ctx.send(ghostcourt.list_user_queue(user))
 
     @commands.command(name='dq')
     async def dequeue(ctx, *roles):
@@ -112,27 +97,7 @@ class UserCog(commands.Cog, name="Commands"):
 
         You may also use aggregate role names here.
         '''
-        debug('Got request to dequeue from {0}', roles)
+        ghostcourt.debug('Got request to dequeue from {0}', roles)
         user = ctx.author
-
-        if len(roles) == 0:
-            debug("Let's dequeue everywhere!")
-            roles = ['all']
-
-        for role in translate_roles(roles):
-            debug("Processing role {0}", role)
-            q = qs.get(role)
-            
-            if q == None:
-                debug('Bad role {0} requested', role)
-                continue
-
-            if not user in q:
-                debug('User {0} not in {1} queue', user, role)
-                continue
-            
-            debug("Removing user from queue")
-            q.remove(user)
-
-        debug('Finished removing from queues')  
-        await ctx.send(list_user_queue(user))
+        ghostcourt.dequeue(user, roles)
+        await ctx.send(ghostcourt.list_user_queue(user))
