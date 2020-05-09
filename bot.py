@@ -110,7 +110,10 @@ def debug_obj(obj):
 
 ''' Run bot, run! '''
 
+import bailiff
 import user
 
+bot.add_cog(bailiff.BailiffCog(bot))
 bot.add_cog(user.UserCog(bot))
+
 bot.run(TOKEN)
