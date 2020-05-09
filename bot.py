@@ -63,6 +63,26 @@ def list_user_queue(user):
     debug(response)
     return response
 
+def add_case(user, cases):
+    '''
+    Given a case number, add that case to the case queue
+    '''
+    pass
+
+def next_case(user, args):
+    '''
+    Close out the current case and start a new one. This involves:
+    - Remove litigant roles
+    - If an officer is to step down, remove their role
+    - Assign new litigant roles
+    - Fill vacant officer roles
+    - Announce the new case
+    '''
+    debug("Ending current case")
+    debug("Loading new case")
+    debug("Assigning new roles")
+    pass
+
 ''' Helper function '''
 
 def translate_roles(roles):
@@ -91,13 +111,24 @@ def translate_roles(roles):
     return new_roles
 
 # Queues 
+
 qs = {
     'plaintiff': [],
     'defendant': [],
     'judge': [],
     'reporter': [],
     'clerk': [],
-    'bailiff': []
+    'bailiff': [],
+}
+
+cases = []
+current_case = {
+    'docketNumber': None,
+    'plaintiffName': None,
+    'plaintiffUser': None,
+    'defendantName': None,
+    'defendantUser': None,
+    'judgeUser': None,
 }
 
 # Debug
@@ -111,9 +142,11 @@ def debug_obj(obj):
 ''' Run bot, run! '''
 
 import bailiff
+import clerk
 import user
 
 bot.add_cog(bailiff.BailiffCog(bot))
+bot.add_cog(clerk.ClerkCog(bot))
 bot.add_cog(user.UserCog(bot))
 
 bot.run(TOKEN)
