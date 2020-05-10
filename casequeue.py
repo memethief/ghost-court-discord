@@ -12,6 +12,16 @@ class CaseQueue(object):
             CaseQueue.__instance.q = []
         return CaseQueue.__instance
 
+    cases = []
+    current_case = {
+        'docketNumber': None,
+        'plaintiffName': None,
+        'plaintiffUser': None,
+        'defendantName': None,
+        'defendantUser': None,
+        'judgeUser': None,
+    }
+
     def add(self, case):
         '''
         Given a case number, add that case to the case queue
