@@ -100,6 +100,7 @@ def dequeue(user, roles):
     One may also use aggregate role names here.
     '''
     debug('Going to dequeue {1} from {0}', roles, user)
+    response = dict()
 
     if len(roles) == 0:
         debug("Let's dequeue everywhere!")
@@ -111,16 +112,20 @@ def dequeue(user, roles):
         
         if q == None:
             debug('Bad role {0} requested', role)
+            response[role] = "No such role"
             continue
 
         if not user in q:
             debug('User {0} not in {1} queue', user, role)
+            response[role] = "Not in queue"
             continue
         
         debug("Removing user from queue")
         q.remove(user)
+        response[role] = "OK"
 
     debug('Finished removing from queues')
+    return response
 
 def empty_queue(user, roles):
     '''

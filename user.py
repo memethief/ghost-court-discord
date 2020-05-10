@@ -92,7 +92,7 @@ class UserCog(commands.Cog, name="Commands"):
         queues but keep your place in all other queues, you may
         type:
 
-            !dq plaintiff reporter
+            !dq defendant reporter
 
         You may also use aggregate role names here.
         '''
