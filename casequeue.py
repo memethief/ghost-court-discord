@@ -30,7 +30,9 @@ class CaseQueue(object):
 
     def next(self):
         '''
-        Close out the current case and start a new one. This involves:
+        Close out the current case and start a new one. 
+
+        This involves:
         - Remove litigant roles
         - If an officer is to step down, remove their role
         - Assign new litigant roles
@@ -40,4 +42,7 @@ class CaseQueue(object):
         debug("Ending current case")
         debug("Loading new case")
         debug("Assigning new roles")
+        pass
+
+    def list(self):
         pass
