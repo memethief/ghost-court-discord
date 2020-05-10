@@ -49,36 +49,41 @@ def list_role_queue(role):
     return response
 
 def enqueue(user, roles):
-        '''
-        Add a user to a queue or queues
-        
-        One may also use aggregate role names here.
+    '''
+    Add a user to a queue or queues
+    
+    One may also use aggregate role names here.
 
-        Note that this command does not affect user's current
-        place in any queues they have already joined.
-        '''
-        debug('Going to enqueue {1} into {0}', roles, user)
+    Note that this command does not affect user's current
+    place in any queues they have already joined.
+    '''
+    debug('Going to enqueue {1} into {0}', roles, user)
+    response = dict()
 
-        if len(roles) == 0:
-            debug("Let's enqueue everywhere!")
-            roles = ['all']
+    if len(roles) == 0:
+        debug("Let's enqueue everywhere!")
+        roles = ['all']
 
-        for role in translate_roles(roles):
-            debug("Processing role {0}", role)
-            q = qs.get(role)
+    for role in translate_roles(roles):
+        debug("Processing role {0}", role)
+        q = qs.get(role)
 
-            if q == None:
-                debug('Bad role {0} requested', role)
-                continue
+        if q == None:
+            debug('Bad role {0} requested', role)
+            response[role] = "No such role"
+            continue
 
-            if user in q:
-                debug('User {0} already in {1} queue', user, role)
-                continue
+        if user in q:
+            debug('User {0} already in {1} queue', user, role)
+            response[role] = "Already in queue"
+            continue
 
-            debug("Appending user to {0} queue", role)
-            q.append(user)
+        debug("Appending user to {0} queue", role)
+        q.append(user)
+        response[role] = "OK"
 
-        debug('Finished adding to queues')
+    debug('Finished adding to queues')
+    return response
 
 def dequeue(user, roles):
     '''
