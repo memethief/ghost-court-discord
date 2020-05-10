@@ -59,4 +59,29 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
             response.append(" {0}: {1}".format(role, status))
         response.append("Finished dequeuing {user}")
         await ctx.send("\n".join(response))
+    
+    @commands.has_role('Bailiff')
+    @commands.command(name='mtq')
+    async def empty_queue(self, ctx, *roles):
+        '''
+        Empty out an entire queue or queues
+
+        This command will clear all users from the named queue or
+        queues. For example, to empty the Bailiff queue, type:
+
+            !mtq bailiff
+
+
+        A role or roles must be specified; calling this command 
+        without arguments is an error. You can empty all queues 
+        with the command:
+
+            !mtq all
+        '''
+        ghostcourt.debug('Got request to empty {0}', roles)
+        response = ["Emptying queues:"]
+        for role, status in ghostcourt.empty_queue(roles).items():
+            response.append(" {0}: {1}".format(role, status))
+        response.append("Finished empying queues")
+        await ctx.send("\n".join(response))
 

@@ -127,11 +127,32 @@ def dequeue(user, roles):
     debug('Finished removing from queues')
     return response
 
-def empty_queue(user, roles):
+def empty_queue(roles):
     '''
     Given a list of roles, empty their queues
     '''
-    pass
+    debug("Going to empty queues: {0}", roles)
+    response = dict()
+
+    if len(roles) == 0:
+        debug("Empty argument list given")
+        raise ValueError("Must specify queue or queues to empty")
+
+    for role in translate_roles(roles):
+        debug("Processing role {0}", role)
+        q = qs.get(role)
+        
+        if q == None:
+            debug('Bad role {0} requested', role)
+            response[role] = "No such role"
+            continue
+
+        debug("Emptying queue")
+        q.clear()
+        response[role] = "OK"
+
+    debug('Finished emptying queues')
+    return response
 
 def add_case(user, cases):
     '''
