@@ -44,8 +44,7 @@ class UserCog(commands.Cog, name="Commands"):
 
             else:
                 ghostcourt.debug("{0} args", len(args))
-                for arg in args:
-                    msg_response.append(ghostcourt.list_role_queue(arg))
+                msg_response = ghostcourt.list_role_queue(args)
                 # iterate
                 pass
         except Exception as e:
@@ -101,3 +100,13 @@ class UserCog(commands.Cog, name="Commands"):
         user = ctx.author
         ghostcourt.dequeue(user, roles)
         await ctx.send(ghostcourt.list_user_queue(user))
+
+# Other methods
+
+def format_queue(q):
+    '''
+    Given a queue object, return a string representation of it 
+    suitable for a message in Discord
+    '''
+    pass
+

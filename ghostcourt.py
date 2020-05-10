@@ -25,27 +25,35 @@ def list_user_queue(user):
     debug(response)
     return response
 
-def list_role_queue(role):
-    debug("Listing queue for role: {0}".format(role))
+'''
+Return a list of strings, each one being a representation of a queue
+'''
+def list_role_queue(roles):
+    debug("Listing queue for roles: {0}".format(roles))
+
+    response = []
     
-    listing = []
-    q = qs.get(role)
-    if q == None:
-        raise InvalidArgument("Unknown role {0}".format(role))
+    for role in translate_roles(roles):
+        q = qs.get(role)
+        if q == None:
+            raise ValueError("Unknown role {0}".format(role))
 
-    index = 0
-    for user in q:
-        listing.append("{0}: {1}".format(index, user))
-        index += 1
+        listing = []
+        if len(q) == 0:
+            listing.append("{0} queue is empty".format(role))
+        else:
+            listing.append("{0} queue:".format(role))
 
-    if index == 0:
-        listing.append("{0} queue is empty".format(role))
-    else:
-        listing.insert(0, "{0} queue:".format(role))
+            index = 0
+            for user in q:
+                listing.append("{0}: {1}".format(index, user))
+                index += 1
 
-    response = '\n'.join(listing)
-    debug('Message to send:')
-    debug(response)
+        message = '\n'.join(listing)
+        debug('Message to send:')
+        debug(message)
+        response.append(message)
+
     return response
 
 def enqueue(user, roles):
