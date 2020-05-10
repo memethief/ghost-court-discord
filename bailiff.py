@@ -1,11 +1,13 @@
 # Bailiff cog
 from discord.ext import commands
-import ghostcourt
+from ghostcourt import debug, debug_obj
+from rolequeue import RoleQueue
 
 class BailiffCog(commands.Cog, name="Bailiff commands"):
     def __init__(self, bot):
         self.bot = bot
-        ghostcourt.debug("Clerk cog started")
+        self.rq = RoleQueue()
+        debug("Bailiff cog started")
 
     @commands.has_role('Bailiff')
     @commands.command(name='qser')
@@ -28,9 +30,9 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
         want to move them to the back of a queue you must use 
         !dqser, followed by !qser.
         '''
-        ghostcourt.debug('Got request to enqueue {1} for {0}', roles, user)
+        debug('Got request to enqueue {1} for {0}', roles, user)
         response = ["Adding {0} to roles:".format(user)]
-        for role, status in ghostcourt.enqueue(user, roles).items():
+        for role, status in self.rq.add(user, roles).items():
             response.append(" {0}: {1}".format(role, status))
         response.append("Finished enqueuing {0}".format(user))
         await ctx.send("\n".join(response))
@@ -52,9 +54,9 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
 
         You may also use aggregate role names here.
         '''
-        ghostcourt.debug('Got request to dequeue {1} from {0}', roles, user)
+        debug('Got request to dequeue {1} from {0}', roles, user)
         response = ["Removing {0} from roles:".format(user)]
-        for role, status in ghostcourt.dequeue(user, roles).items():
+        for role, status in self.rq.remove(user, roles).items():
             response.append(" {0}: {1}".format(role, status))
         response.append("Finished dequeuing {0}".format(user))
         await ctx.send("\n".join(response))
@@ -77,9 +79,9 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
 
             !mtq all
         '''
-        ghostcourt.debug('Got request to empty {0}', roles)
+        debug('Got request to empty {0}', roles)
         response = ["Emptying queues:"]
-        for role, status in ghostcourt.empty_queue(roles).items():
+        for role, status in self.rq.clear(roles).items():
             response.append(" {0}: {1}".format(role, status))
         response.append("Finished empying queues")
         await ctx.send("\n".join(response))

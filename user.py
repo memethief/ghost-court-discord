@@ -1,6 +1,7 @@
 # General user cog
 from discord.ext import commands
-import ghostcourt
+from ghostcourt import debug, debug_obj
+from rolequeue import RoleQueue
 
 class UserCog(commands.Cog, name="Commands"):
     '''
@@ -11,10 +12,11 @@ class UserCog(commands.Cog, name="Commands"):
     '''
     def __init__(self, bot):
         self.bot = bot
-        ghostcourt.debug("User cog started")
+        self.rq = RoleQueue()
+        debug("User cog started")
 
     @commands.command(name='cq')
-    async def list_queue(self, ctx, *args):
+    async def list_queue(self, ctx, *roles):
         '''
         List contents of queues
 
@@ -32,27 +34,26 @@ class UserCog(commands.Cog, name="Commands"):
         You may also use aggregate role names here.
         '''
         print('cq', flush=True)
-        ghostcourt.debug('listing queues with args:')
-        ghostcourt.debug_obj(args)
+        debug('listing queues with roles:')
+        debug_obj(roles)
 
         msg_response = list()
 
         try:
-            if len(args) == 0:
-                ghostcourt.debug("zero args -- listing for user {0}", ctx.author)
-                msg_response.append(ghostcourt.list_user_queue(ctx.author))
+            if len(roles) == 0:
+                debug("zero args -- listing for user {0}", ctx.author)
+                msg_response.append(self.rq.list_user(ctx.author))
 
             else:
-                ghostcourt.debug("{0} args", len(args))
-                msg_response = ghostcourt.list_role_queue(args)
-                # iterate
-                pass
+                debug("{0} args", len(roles))
+                msg_response = self.rq.list(roles)
+
         except Exception as e:
-            ghostcourt.debug("Whoops...")
-            ghostcourt.debug_obj(e)
+            debug("Whoops...")
+            debug_obj(e)
 
         for msg in msg_response:
-            ghostcourt.debug("sending message...")
+            debug("sending message...")
             await ctx.send(msg)
 
     @commands.command(name='q')
@@ -75,10 +76,10 @@ class UserCog(commands.Cog, name="Commands"):
         want to move to the back of a queue you must use !dq,
         followed by !q.
         '''
-        ghostcourt.debug('Got request to enqueue for {0}', roles)
+        debug('Got request to enqueue for {0}', roles)
         user = ctx.author
-        ghostcourt.enqueue(user, roles)
-        await ctx.send(ghostcourt.list_user_queue(user))
+        self.rq.add(user, roles)
+        await ctx.send(self.rq.list_user(user))
 
     @commands.command(name='dq')
     async def dequeue(self, ctx, *roles):
@@ -96,10 +97,10 @@ class UserCog(commands.Cog, name="Commands"):
 
         You may also use aggregate role names here.
         '''
-        ghostcourt.debug('Got request to dequeue from {0}', roles)
+        debug('Got request to dequeue from {0}', roles)
         user = ctx.author
-        ghostcourt.dequeue(user, roles)
-        await ctx.send(ghostcourt.list_user_queue(user))
+        self.rq.remove(user, roles)
+        await ctx.send(self.rq.list_user(user))
 
 # Other methods
 
