@@ -8,7 +8,7 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
         ghostcourt.debug("Clerk cog started")
 
     @commands.has_role('Bailiff')
-    @commands.command(name='qser', help='Add a user to queues')
+    @commands.command(name='qser')
     async def enqueue_user(self, ctx, user, *roles):
         '''
         Add a user to a queue or queues
@@ -32,12 +32,11 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
         response = ["Adding {0} to roles:".format(user)]
         for role, status in ghostcourt.enqueue(user, roles).items():
             response.append(" {0}: {1}".format(role, status))
-        response.append("Finished enqueuing {user}")
+        response.append("Finished enqueuing {0}".format(user))
         await ctx.send("\n".join(response))
-
     
     @commands.has_role('Bailiff')
-    @commands.command(name='dqser', help='Remove a user from queues')
+    @commands.command(name='dqser')
     async def dequeue_user(self, ctx, user, *roles):
         '''
         Remove a user from a queue or queues
@@ -57,7 +56,7 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
         response = ["Removing {0} from roles:".format(user)]
         for role, status in ghostcourt.dequeue(user, roles).items():
             response.append(" {0}: {1}".format(role, status))
-        response.append("Finished dequeuing {user}")
+        response.append("Finished dequeuing {0}".format(user))
         await ctx.send("\n".join(response))
     
     @commands.has_role('Bailiff')
