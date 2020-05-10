@@ -2,7 +2,6 @@
 import os
 import random
 import discord
-import ghostcourt
 
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -28,19 +27,6 @@ async def on_command_error(ctx, error):
     else:
         await ctx.send('Unknown error: {0}'.format(error))
         
-# Commands
-
-@bot.command(name='poc', hidden=True)
-async def poc(ctx, *args):
-    ghostcourt.debug("Proof of concept. args:")
-    ghostcourt.debug_obj(args)
-    ghostcourt.debug("Author:")
-    pprint(ctx.author)
-
-    response = 'Hello {0} how are you?'.format(ctx.author.mention)
-    
-    await ctx.send(response)
-
 ''' Run bot, run! '''
 
 import bailiff

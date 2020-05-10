@@ -1,3 +1,4 @@
+from pprint import pprint
 
 # Other actions
 
@@ -193,3 +194,4 @@ def debug(message, *args):
 
 def debug_obj(obj):
     print(obj, flush=True)
+    pprint(obj)
