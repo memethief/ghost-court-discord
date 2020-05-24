@@ -2,6 +2,7 @@
 from ghostcourt import debug, debug_obj
 from case import Case
 import yaml
+import math, random
 
 class CaseQueue(object):
     '''
@@ -77,4 +78,16 @@ class CaseQueue(object):
         pass
 
     def list(self):
+        pass
+
+    def choose(self, range=10):
+        '''
+        Choose and enqueue a single case from the next few in the
+        hopper
+        '''
+        debug("Adding a random case to the docket")
+        spread = min(range, len(CaseQueue.hopper))
+        index = math.floor(random.random() * spread)
+        case = CaseQueue.hopper.pop(index)
+        CaseQueue.docket.append(case)
         pass
