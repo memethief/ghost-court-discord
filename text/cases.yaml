@@ -1,0 +1,700 @@
+# Ghost Court cases
+---
+case: 1
+summary: >
+  This is a haunting rights dispute between two ghost claimants of the
+  property at 1151 Sumner Street.
+plaintiff: 
+  name: Wope-Kisux
+  status: Dead
+  summary: >
+    You are a Lenape ghost and have been haunting the land that is now 
+    1151 Sumner Street since your death in 1782. To haunt the place of 
+    your death is your right, and you intend to do so forever. Other 
+    ghosts have always respected this, but now a new ghost named 
+    Partlow refuses to acknowledge your claim.
+defendant:
+  name: Partlow
+  status: Dead
+  summary: >
+    You have been haunting the property you owned in life at 1151 
+    Sumner Street since your death last year. You owned the property, 
+    and now your children do, and you’ve chosen to stay and haunt it. 
+    Unfortunately another ghost thinks they have rights to haunt it 
+    instead.
+---
+case: 2
+summary: >
+  This is a behavior complaint by the living plaintiff against the resident
+  poltergeist at 61 Bellwood Court.
+plaintiff: 
+  name: Byrne
+  status: Alive
+  summary: >
+    Your property at 61 Bellwood Court is a lovely home for you and your
+    family, but there is one annoying catch -- it came with a poltergeist
+    that doesn't respect boundaries. All you want is some peace and
+    quiet, but apparently that's simply impossible.
+defendant:
+  name: Gurlewicz
+  status: Dead
+  summary: >
+    You are a poltergeist -- the restless dead! Making an unholy racket is
+    kind of your thing. The Plaintiff in this case knew damn well that the
+    house at 61 Bellwood Court was going to be rocking at the time of
+    purchase, and you have a right to self expression.
+---
+case: 3
+summary: >
+  This is a tenancy case between the ghost plaintiff who has been evicted
+  and the living property owner at 919 Sherman Street.
+plaintiff: 
+  name: Turnbull
+  status: Dead
+  summary: >
+    You are a quiet, peaceful ghost being forced out of your beloved
+    attic at 919 Sherman Street by new occupants through devious legal
+    chicanery, even though you were promised a safe haunting place in
+    perpetuity by the wise, kind and understanding original owners.
+defendant:
+  name: Wong
+  status: Alive
+  summary: >
+    Turnbull, the ghost that lives in the attic of your new home at 919
+    Sherman Street, has been legally evicted but refuses to leave. In
+    fact, they've brought you to Ghost Court in a feeble attempt to assert
+    their "right" to stay, based on some unwritten agreement with the
+    previous owner.
+---
+case: 4
+summary: >
+  This is a behavior complaint by the living plaintiff against the family
+  ghost at 4001 Mason Court Drive.
+plaintiff: 
+  name: Fernandez
+  status: Alive
+  summary: >
+    Your Beardsley Avenue bed-and-breakfast is a nice retirement
+    business, and having the ghost of your spooky ancestor around is a
+    wonderful perk -- at Halloween. The rest of the year, you'd prefer a more
+    sedate and guest-friendly haunting, but your dead relative won't leave
+    well enough alone. Constantly scaring the guests!
+defendant:
+  name: Fernandez
+  status: Dead
+  summary: >
+    Being a fantasma is great, especially in a house full of your relatives.
+    You keep an eye on them! And you love scaring people, so the
+    constant stream of visitors is great. Now they've brought you to Ghost
+    Court to force you to settle down, but as their elder you find this both
+    disrespectful and insulting.
+---
+case: 5
+summary: >
+  This is a contract dispute between the living owner of Ye Olde Haunted
+  Well, Inc. and an employee ghost.
+plaintiff: 
+  name: Jenkins
+  status: Alive
+  summary: >
+    You run Ye Olde Haunted Well, a haunted well/gift shop/miniature
+    golf park. The well's ghost, Lucrecio, is wonderfully Gothic and a real
+    draw -- when they are around. Lately they have taken to slacking off, and
+    that has been disastrous for your business. You need them haunting
+    their frickin' well! Lucrecio signed a contract.
+defendant:
+  name: Lucrecio
+  status: Dead
+  summary: >
+    Until recently you haunted the well you were thrown down many years
+    ago, which seemed natural. People came to pity your sad tale. But then
+    you started thinking, and gradually your religious convictions overtook
+    you. Now haunting seems sinful and wrong, and you are resolved to haunt
+    no more, contract or not.
+---
+case: 6
+summary: >
+  This is a tenancy dispute related to infidelity and child custody between
+  the ghost plaintiff and the living defendant. It's sort of a rat's nest of
+  complications.
+plaintiff: 
+  name: Boyd
+  status: Dead
+  summary: >
+    You shouldn't have gotten into a relationship with the living -- the
+    defendant's spouse -- but you did, and the two of you had flve half-ghost
+    children together. And then, the usual -- betrayal; your "love" ran
+    off and now all you want is a place for your broken family to live, a
+    basement of your own, perhaps in your old lover's house.
+defendant:
+  name: Fisher
+  status: Alive
+  summary: >
+    Your spouse had a long-term affair with the Plaintiff, who is a ghost,
+    and together they had five half-ghost children. Then your spouse
+    abandoned both of you, and now the ghosts want to move into the
+    basement of your house. You don't owe these people anything, much
+    less room in your home.
+---
+case: 7
+summary: >
+  This is a haunting rights case between two ghosts who want to
+  haunt the same person.
+plaintiff: 
+  name: Mangiani
+  status: Dead
+  summary: >
+    Chris Phipps, 8002 North Adolph Avenue, is a terrible person worthy
+    of the best haunting, and that is exactly what you provide. You've
+    made Phipps' life a living hell, but now another ghost wants to
+    horn in on the action, and that is unacceptable.
+defendant:
+  name: O'Dell
+  status: Dead
+  summary: >
+    Chris Phipps, 8002 North Adolph Avenue, is a terrible person worthy
+    of the best haunting, and that is exactly what you provide. You've
+    made Phipps' life a living hell, but now another ghost wants to chase
+    you off, and that is unacceptable.
+---
+case: 8
+summary: >
+  This is a contract dispute between the living manager of the Coffer
+  Avenue Theater and a ghost employee.
+plaintiff: 
+  name: Price
+  status: Alive
+  summary: >
+    The Defendant, the ghost Lafarga, made a verbal promise to haunt
+    the Coffer Avenue Theater in exchange for various perks including
+    unlimited free screenings. Lafarga has instead stayed away from the
+    historic landmark and left it ghostless, in breach of contract. You want
+    Lafarga on the job, or you want damages.
+defendant:
+  name: Lafarga
+  status: Dead
+  summary: >
+    You made a verbal promise to haunt the Coffer Avenue Theater
+    in exchange for free screenings. However, recently the noted ghost
+    hunter Pauline Couchenour has been attending screenings, randomly
+    but quite often. You dare not cross paths with Couchenour, who could
+    capture or disperse you.
+---
+case: 9
+summary: >
+  This is a contract dispute hinging on the ghost defendant's ability
+  to communicate with a deceased relative of the living plaintiff.
+plaintiff: 
+  name: Kadow
+  status: Alive
+  summary: >
+    The Defendant, the ghost Rames, agreed to act as an intermediary
+    between you and your deceased mother. Certain concessions were
+    made, including permission to haunt your hot dog cart on East
+    Market Street. The Defendant never contacted your mother, instead
+    fabricating excuses, and refuses to stop haunting your cart.
+defendant:
+  name: Rames
+  status: Dead
+  summary: >
+    You agreed to act as an intermediary between Plaintiff Kadow and the
+    Plaintiff's dead mother, in exchange for haunting rights to Plaintiff's hot
+    dog cart. You did make contact, but Kadow's mother is in hell and
+    cannot communicate sensibly. You fulfilled your end of the bargain but
+    Kadow refuses to believe it.
+---
+case: 10
+summary: >
+  This is a personal injury claim between a living plaintiff and a
+  ghostly defendant.
+plaintiff: 
+  name: Prohl
+  status: Alive
+  summary: >
+    Coming out of the Sea Breeze Dry Cleaners on Straw Street,
+    you were ambushed by a terrifying ghost (the Defendant). Excessively
+    terrified and shocked, you slipped on a discarded slice of pizza and
+    fell, injuring your neck and hip. You want damages for medical expenses.
+defendant:
+  name: Foxwell
+  status: Dead
+  summary: >
+    You haunt the sidewalk in front of Sea Breeze Dry Cleaners on Straw
+    Street, and you are damn good at it. You radiate menace and terror,
+    almost as if you were a ... ghost. Which you are. The fool taking you
+    to Ghost Court was startled and fell down, and somehow that's your
+    fault, because you did your job too well?
+---
+case: 11
+summary: >
+  This is a property dispute between the ghostly plaintiff and living
+  defendant revolving around ownership of a recently discovered
+  necklace.
+plaintiff: 
+  name: Connell
+  status: Dead
+  summary: >
+    The Defendant discovered a long-hidden emerald necklace that was
+    the instigating factor in your death, a very nice piece that originally
+    belonged to you before being concealed by your murderer so many
+    years ago. You want it back and the Defendant, Wicker, flatly refuses to
+    return it.
+defendant:
+  name: Wicker
+  status: Alive
+  summary: >
+    You found a lovely emerald necklace stashed under the floor of your
+    kitchen during some remodeling. There's no way to know who it
+    belonged to originally, but it belongs to you now. You may keep it, or you
+    may sell it, but there's no way you are giving it to a ghost.
+---
+case: 12
+summary: >
+  This is a contract dispute between living people about the defendant's
+  certification of the status of a property at 96 Hudson Street.
+plaintiff: 
+  name: Clatterbuck
+  status: Alive
+  summary: >
+    You received assurances that the hardware store you bought from the
+    Defendant at 96 Hudson Street -- Fenstermacher's hardware -- was
+    100% ghost-free. That was patently false, since the establishment is
+    prominently haunted by the ghost of an angry little girl named Amanda
+    Cecil. It is a clear case of breach of warranty.
+defendant:
+  name: Fenstermacher
+  status: Alive
+  summary: >
+    You sold your hardware store at 96 Hudson Street -- Fenstermacher's
+    hardware, since renamed Clatterbuck Hardware -- to Plaintiff
+    Clatterbuck for a fair price. At the time it was, as far as you know,
+    ghost-free. After Clatterbuck moved in a ghost showed up, but that can't
+    possibly be your fault.
+---
+case: 13
+summary: >
+  This is a financial dispute concerning a loan made by the ghost plaintiff to
+  the living defendant.
+plaintiff: 
+  name: Nanney
+  status: Dead
+  summary: >
+    You made a deal with the Defendant to loan a cache of old gold coins so
+    that the property they owned -- and you diligently haunted -- on Corke
+    Street could be improved. You were never compensated or paid back for
+    your loan.
+defendant:
+  name: Melendez
+  status: Alive
+  summary: >
+    The ghost that haunts your Corice Street property showed you where a
+    cache of gold coins was buried. You used the windfall to build a nice
+    deck. Now the ghost is claiming that it was a "loan", and wants to
+    be compensated for the coins. All they did was point at a spot in the
+    yard and wait for you to dig up the coin jar.
+---
+case: 14
+summary: >
+  This is a property dispute between living people concerning care and
+  upkeep of a ghost dog.
+plaintiff: 
+  name: Sterthanus
+  status: Alive
+  summary: >
+    Early in your marriage you agreed to adopt a rescue ghost dog -- a
+    Hauntweiler -- and it brought you closer. But over time the relationship
+    soured, and you are getting divorced. Now your former spouse refuses
+    to take any responsibility for the demanding pet you shared, and
+    you are tired of cleaning up the ectoplasm.
+defendant:
+  name: Sterthanus
+  status: Alive
+  summary: >
+    Early in your marriage you very reluctantly agreed to adopt a rescue
+    ghost dog -- a Hauntweiler -- at your spouse's insistence. But over time
+    the relationship soured, and you are getting divorced. Now your
+    former spouse insists that you take the demanding pet you shared, even
+    though it was never your idea.
+---
+case: 15
+summary: >
+  This is a property dispute between the living plaintiff and a ghost
+  defendant concerning haunting-related damage to an automobile.
+plaintiff: 
+  name: Hersi
+  status: Alive
+  summary: >
+    You were driving over the Russell Avenue Bridge wlhen a specter in
+    white distracted you, resulting in minor but noticeable damage to
+    your BMW 7-series. You want the Defendant, who is clearly
+    responsible, to compensate you.
+defendant:
+  name: Tamlin
+  status: Dead
+  summary: >
+    Somebody had an accident and wants you to pay for damages. Your
+    haunting of Russell Avenue is well known and announced with signs
+    along the road. You have as much of a right to float wistfully above the
+    creek as anyone!
+---
+case: 16
+summary: >
+  This is an employment dispute brought by the ghost plaintiff
+  against their living employer about the division of labor within the
+  company.
+plaintiff: 
+  name: Durston
+  status: Dead
+  summary: >
+    You are no longer getting the best haunting shifts from manager
+    Bracca because of a new hire who died in a much cooler way. Your
+    employment contract doesn't specifically say shifts will be fairly
+    distributed, but ghosts live off of scares, so not getting the busy shifts
+    is effectively a firing!
+defendant:
+  name: Bracca
+  status: Alive
+  summary: >
+    You staff the best ghosts, and give the best and most numerous
+    shifts to the ghosts who draw the best crowds. It's just business. The
+    employment contract the Plaintiff, a ghost named Durston, signed
+    doesn't specifically say shifts will be fairly distributed. Durston does not
+    draw a crowd.
+---
+case: 17
+summary: >
+  This is a dispute over haunting rights brought by the living
+  plaintiff against the ghost defendant revolving around the appropriate
+  location for haunting within a domicile.
+plaintiff: 
+  name: Sweeney
+  status: Alive
+  summary: >
+    You like the Defendant and enjoy their skilled haunting. When you
+    decided to put in a rooftop garden, you asked them to relocate to a lower
+    floor, since their death energy kills all plant life. They refused, citing a
+    "Certificate of Haunting", which isn't. even a thing. If they would
+    just move down one floor you'd be overjoyed.
+defendant:
+  name: Howard
+  status: Dead
+  summary: >
+    You've haunted the second floor patio of 600 Yeager Way for 100
+    years. It's where you belong, and you have a Certificate of Haunting
+    from 1929 to prove it. When the current occupant decided to turn it
+    into a rooftop garden, well, the fact that your death energy killed all the
+    plants was a logical consequence.
+---
+case: 18
+summary: >
+  This is a dispute over defamation related to the defendant's death
+  under the medical care of the living plaintiff.
+plaintiff: 
+  name: Tulipano
+  status: Alive
+  summary: >
+    It is true that the Defendant died on your operating table, but you didn't
+    "kill" them, as they loudly proclaim. The fact is they were so badly injured
+    it is a miracle they even made it to the hospital. Now they are defaming
+    you in this world and the next, and it needs to stop. Your reputation is
+    being ruined!
+defendant:
+  name: Jefferson
+  status: Dead
+  summary: >
+    Dr. Tulipano's hand was on your heart when it stopped beating,
+    and that's the simple fact in this case. You tell people Tulipano is
+    responsible for your death, and the doctor wants to shut you up. Could
+    another surgeon have saved you? Hard to say, but Tulipano sure didn't,
+    and you'll tell whoever will listen.
+---
+case: 19
+summary: >
+  This is a haunting rights dispute related to access to a site of death,
+  brought by the plaintiff, a ghost representing a minor, against the
+  living defendant.
+plaintiff: 
+  name: Patel
+  status: Dead
+  summary: >
+    You are in Court representing a minor, a child named Walter Jackson
+    who was run over by a garbage truck, who wants access to the location of
+    his death. The yard where he expired on South Main Street has been
+    blocked off with decorative cold iron fencing that no ghost can pass
+    through. It needs to come down.
+defendant:
+  name: Mladenka
+  status: Alive
+  summary: >
+    You don't know about ghosts but you do know about security, and
+    South Main Street is a rough area, and you've got kids. So you put up a
+    heavy iron fence that cost a fortune, and now some ghost comes along
+    with a sob story about needing access to your front lawn to haunt
+    the place and scare your babies. No way!
+---
+case: 20
+summary: >
+  This is a haunting rights dispute between the ghost plaintiff
+  and living defendant related to obstruction of ghostly smells from
+  a retail business.
+plaintiff: 
+  name: Shribman
+  status: Dead
+  summary: >
+    You consider yourself an excellent haunter, and generate a ferocious
+    brimstone smell. Unfortunately, Wagtail's Barbecue Restaurant next
+    door produces so much pit smoke that your most prominent feature is
+    disguised by meat odors. They need to put in a heavy duty air scrubber.
+defendant:
+  name: Travis
+  status: Alive
+  summary: >
+    Your business, Wagtail's Barbecue on Jewell Drive, draws foot traffic
+    with the delicious odor of slow-cooked pork shoulder from your
+    hickory-fired pit. A local ghost claims that your restaurant is
+    covering up a brimstone odor and impacting effective haunting. They
+    want you to install very expensive air handlers.
+---
+case: 21
+summary: >
+  This is a haunting rights dispute between the ghost plaintiff and living
+  defendant concerning admission to age-controlled establishments.
+plaintiff: 
+  name: Spiller
+  status: Dead
+  summary: >
+    You died when you were 20 years old, which at the time was old enough to
+    own your own business, home and horse. Recently you were repeatedly
+    and unlawfully denied entry into the Defendant's business, Razzle's Show
+    Club at East 137th Street, despite having roamed the Earth for over
+    140 years.
+defendant:
+  name: name
+  status: Dead
+  summary: >
+    You own and operate Razzle's Showclub, an adult entertainment
+    business featuring naked people and over-priced alcohol. You are not
+    prejudiced against ghosts -- you are prejudiced against twenty year olds,
+    because you'll lose your license if anyone under 21 steps through your
+    door.
+---
+case: 22
+summary: >
+  This is a haunting rights case brought by the living plaintiff
+  against the ghost defendant related to the haunting of an object rather
+  than a location.
+plaintiff: 
+  name: Alterdice
+  status: Alive
+  summary: >
+    You own a late model Lexus you got gently used. The paperwork didn't
+    mention that it was haunted, but it was actually pretty cool having a
+    ghost on board -- at least until you started making ends meet by driving
+    for a ride-sharing service. Now your customers are freaked out and the
+    ghost has got to go.
+defendant:
+  name: Morris
+  status: Dead
+  summary: >
+    Most ghosts haunt a place but you haunt an object -- the Lexus sedan
+    you died in. As with all ghosts, late night haunting is integral to your
+    identity and happiness, and you can't just pick another location. You tried
+    to be nice about it but after initially being welcoming, the Plaintiff has
+    become very hostile.
+---
+case: 23
+summary: >
+  This is an employment dispute between two ghosts related to the
+  tenor of a graveyard haunting.
+plaintiff: 
+  name: Bugg
+  status: Dead
+  summary: >
+    Haunting the graveyard at 1100 Continental Avenue is a dream job,
+    and there's room enough for two ghosts, and you and Shovelton were
+    a great team for a while. But lately Shovelton has been getting slack,
+    playing it for laughs rather than the terror from beyond the grave,
+    and the graveyard has become a laughing stock.
+defendant:
+  name: Shovelton
+  status: Dead
+  summary: >
+    You co-haunt a graveyard and it's wonderful -- lots of visitors, built-in
+    spookiness, and a good friend to haunt with. But lately Bugg has
+    been taking it way too seriously. People visiting a grave are already
+    sad. The least you can do is lighten their spirits a little, pardon the pun.
+---
+case: 24
+summary: >
+  This is a contract dispute between a ghost and a college campus Greek
+  house.
+plaintiff: 
+  name: Goggins
+  status: Dead
+  summary: >
+    You signed a contract to haunt the Greek house at 414 Bentwood
+    Avenue, specifying that the residents and their guests would abide by all
+    applicable campus regulations. The campus has an ordinance from 1899,
+    when you were a student there, that was never repealed, stipulating quiet
+    hours after 10 PM. Alpha Beta Delta is never quiet.
+defendant:
+  name: Alpha Beta Delta
+  status: Alive
+  group: Yes
+  summary: >
+    You hired a ghost to haunt your awesome Greek house to add
+    ambiance to your many epic parties. Right away the ghost started
+    complaining about noise, and not "call the police" levels of noise,
+    either. It's unreasonable to expect a group of college students to tip-toe
+    around like church mice after 10PM.
+---
+case: 25
+summary: >
+  This is a haunting rights dispute between living plaintiffs and a ghost
+  defendant related to the limits of acceptable poltergeist disturbance
+  in a public space.
+plaintiff: 
+  name: Friends of the Library
+  status: Alive
+  group: Yes
+  summary: >
+    A poltergeist has no place in a library, and Parkhill Memorial
+    Library's circulation has plummeted since the Defendant arrived in all
+    their smelly, destructive glory. You aren't anti-ghost, but there's a time
+    and a place for' everything.
+defendant:
+  name: Jolley
+  status: Dead
+  summary: >
+    You were murdered in a stable where Parkhill Memorial Library now
+    stands, and you're still upset about it -- not least because Josiah Parkhill,
+    philanthropist and librarian, is the guy who killed you! Who can blame
+    you for raising a stink -- literally?
+---
+case: 26
+summary: >
+  This is a contract dispute between a living plaintiff and a recently
+  deceased defendant over payment and ownership of a guitar.
+plaintiff: 
+  name: Muggeridge
+  status: Alive
+  summary: >
+    You agreed to sell your '68 Gibson hollow body electric guitar to the
+    Defendant, who put down half the price. They died a few days later, and
+    now they want their money back. A deal's a deal and you want them to
+    pay the rest and take the guitar off your hands.
+defendant:
+  name: Sinclair
+  status: Dead
+  summary: >
+    You agreed to buy the Plaintiff's '68 Gibson hollow body electric
+    guitar, and put down half the asking price. Then you died, and obviously
+    a ghost can't play a guitar, so you want your money back. Or rather,
+    you want your next of kin to receive the money. You're still getting used
+    to being a ghost.
+---
+case: 27
+summary: >
+  This is a contract dispute between living litigants related to appropriate
+  disclosure of the nature of a value-added haunting.
+plaintiff: 
+  name: Krabel
+  status: Alive
+  summary: >
+    When you moved into your rental house at 4833 Swift Avenue you were
+    promised a haunted premises. What you got was a haunted couch, and
+    when that couch became ... soiled ... you were forced to throw it out.
+    You compensated the landlord for the price of the couch, but you
+    still expect a proper haunting as stipulated in your rental contract.
+defendant:
+  name: Naggs
+  status: Alive
+  summary: >
+    You own a rental property at 4833 Swift Avenue. You rented it as "plus
+    ghost". The current tenant managed to destroy the piece of furniture (a nice
+    mid-century modern couch) that the ghost was haunting and threw it out,
+    along with the poor ghost. Now they want another ghost? People are awful.
+---
+case: 28
+summary: >
+  This is a haunting dispute between a formerly-married pair of ghosts and
+  their residence at 5 Chipp Street.
+plaintiff: 
+  name: Levinson
+  status: Dead
+  summary: >
+    You and your spouse both died in a sad accident in your old bungalow
+    at 5 Chipp Street. At first you cohaunted happily, but over time you
+    grew apart. Now you can't stand each other, and need to haunt the place
+    alone. You bought the bungalow with your own money back in 1919.
+    It still technically belongs to you. You can never share!
+defendant:
+  name: Levinson
+  status: Dead
+  summary: >
+    You and your spouse both died in a sad accident in your creepy old
+    bungalow at 5 Chipp Street. At first you co-haunted happily, but over
+    time you grew apart. Now you can't stand each other, and need to haunt
+    the place alone. You are the better haunter by far, and a new family is
+    moving in soon to fix the place up. You can never share!
+---
+case: 29
+summary: >
+  This is a financial contract dispute between living litigants related to the
+  disbursement of money in a shared account.
+plaintiff: 
+  name: Washington
+  status: Alive
+  summary: >
+    You are the divorced ex-spouse of the Defendant. During the divorce
+    money was put in escrow to handle litigation costs, which they used
+    to buy expensive equipment for "having a physical relationship"
+    with their ghost lover. You want that money paid back.
+defendant:
+  name: Logothetis
+  status: Alive
+  summary: >
+    You are the divorced ex-spouse of the Plaintiff. During the divorce
+    money was put in escrow to handle litigation costs, and you used some
+    of it to purchase equipment for contacting spirits in hell to provide
+    character references. One of these was an ex-lover, and your partner is
+    very upset about that.
+---
+case: 30
+summary: >
+  This is a financial and inhuman rights dispute between the undead
+  plaintiff and living defendant related to an application for employment.
+plaintiff: 
+  name: Karimov
+  status: Undead
+  summary: >
+    You are a blood-sucking creature of the night, a vampire! When the
+    Old Times Museum posted an advertisement for "non-living guides
+    born in the 1860s" for an upcoming exhibit, you applied -- and were
+    unceremoniously turned away. You want your application fee back, plus
+    damages.
+defendant:
+  name: Truong
+  status: Alive
+  summary: >
+    You are the Human Resources Manager for the Old Times
+    Museum, a living history museum dedicated to preserving ways of
+    life that are fading into memory. For your upcoming "Pioneers of
+    the land" exhibit, you sought out harmless ghosts who had actually
+    been pioneers. When a vampire applied you turned them away.
+---
+case_template: 
+  case: 00
+  summary: >
+    summary
+  plaintiff: 
+    name: name
+    status: Alive|No
+    summary: >
+      summary
+  defendant:
+    name: name
+    status: Alive|No
+    summary: >
+      summary
+---
