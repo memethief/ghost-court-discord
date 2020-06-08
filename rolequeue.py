@@ -196,3 +196,49 @@ class RoleQueue(object):
 
         debug("...translated to {0}", new_roles)
         return new_roles
+
+    def lineup(self):
+        '''
+        Return a dictionary of the next users and their roles
+
+        Note that this does not actually modify any queues, it just 
+        tells us what roles each person would have if assigned right 
+        now.
+        '''
+        debug("figuring out who gets which role")
+        qsc = dict()
+        for role, q in self.qs.items():
+            qsc[role] = q.copy()
+
+        debug("sorting queues by length")
+        sorted_roles = sorted(qsc.keys(), key=lambda name: len(qsc[name]))
+        debug("sorted queues:")
+        for role in sorted_roles:
+            names = list()
+            for member in qsc[role]:
+                names.append(member.name)
+            debug("{0}: {1}", role, names)
+
+        debug("building dictionary of roles")
+        role_dict = dict()
+
+        # Start with the shortest role queue
+        for role in sorted_roles:
+            if len(qsc[role]) == 0:
+                # if the queue is empty we can't assign the role
+                debug("Nobody in line for {0}", role)
+                role_dict[role] = None
+                continue
+
+            # get the chosen member
+            chosen = qsc.get(role).pop()
+            # and remove them from all other queues
+            for key, alist in qsc.items():
+                if chosen in alist:
+                    alist.remove(chosen)
+
+            debug("{0} gets the role of {1}", chosen.name, role)
+            role_dict[role] = chosen
+
+        # done
+        return role_dict
