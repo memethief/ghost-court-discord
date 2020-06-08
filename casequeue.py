@@ -1,6 +1,7 @@
 # Class representing the case queue
 from ghostcourt import debug, debug_obj
 from case import Case
+from rolequeue import RoleQueue
 import yaml
 import math, random
 
@@ -18,6 +19,8 @@ class CaseQueue(object):
     hopper = []
     # queue of upcoming cases
     docket = []
+    # next case to become active
+    queued = None
     # currently active case
     current = None
     # history of cases seen
@@ -72,9 +75,37 @@ class CaseQueue(object):
         - Fill vacant officer roles
         - Announce the new case
         '''
+        debug("Making sure we have a full lineup for the next case")
+        rq = RoleQueue()
+        lineup = rq.lineup()
+        for role, member in lineup.items():
+            if member is None:
+                raise Exception("Not enough players to fill all roles")
+
         debug("Ending current case")
+        if not self.current is None:
+            # remove roles from current case
+            # move current case into history
+            self.history.append(self.current)
+            self.current = None
+
         debug("Loading new case")
-        debug("Assigning new roles")
+        if (len(self.docket) == 0):
+            raise Exception("No more cases on the docket")
+
+        new_case = self.docket.pop(0)
+        new_case.plaintiffUser = lineup.get("plaintiff")
+        new_case.defendantUser = lineup.get("defendant")
+        new_case.judgeUser = lineup.get("judge")
+
+        debug("Assigning new roles and remove from queues")
+        # TODO assign new roles
+        rq.remove(new_case.plaintiffUser, list())
+        rq.remove(new_case.defendantUser, list())
+        rq.remove(new_case.judgeUser, list())
+
+        debug("Setting new case as current")
+        self.current = new_case
         pass
 
     def list(self):
