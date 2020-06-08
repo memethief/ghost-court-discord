@@ -66,6 +66,18 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
         pass
 
     @commands.has_role('Clerk')
+    @commands.command(name='status')
+    async def casequeue_status(self, ctx):
+        '''
+        View the status of cases
+        '''
+        status = list()
+        for statline in self.caseq.status():
+            status.append(statline)
+
+        await ctx.send("\n".join(status))
+
+    @commands.has_role('Clerk')
     @commands.command(name='lineup')
     async def rolequeue_lineup(self, ctx):
         '''
