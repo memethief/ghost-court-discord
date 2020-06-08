@@ -86,8 +86,12 @@ class CaseQueue(object):
         hopper
         '''
         debug("Adding a random case to the docket")
+        if len(CaseQueue.hopper) == 0 :
+            debug("Nothing in the hopper")
+            raise Exception("No more cases available")
+            return False
         spread = min(range, len(CaseQueue.hopper))
         index = math.floor(random.random() * spread)
         case = CaseQueue.hopper.pop(index)
         CaseQueue.docket.append(case)
-        pass
+        return True
