@@ -2,6 +2,7 @@
 from discord.ext import commands
 from ghostcourt import debug, debug_obj
 from rolequeue import RoleQueue
+from casequeue import CaseQueue
 
 class UserCog(commands.Cog, name="Commands"):
     '''
@@ -101,6 +102,34 @@ class UserCog(commands.Cog, name="Commands"):
         user = ctx.author
         self.rq.remove(user, roles)
         await ctx.send(self.rq.list_user(user))
+
+    @commands.command(name='showcase')
+    async def showcase(self, ctx):
+        '''
+        Show case details
+
+        This command displays the description of the current case,
+        including the names of the litigants. Additional information
+        is displayed for certain roles.
+
+        Clerk: display description for the upcoming case as well.
+
+        Current Plaintiff/Defendant: display your side of the story.
+
+        Upcoming Plaintiff/Defendant: display your information for 
+        the upcoming case.
+        '''
+        debug('Got request to show case information')
+        case = CaseQueue().current
+        if case is None:
+            await ctx.send("No current case")
+        else:
+            await ctx.send("{0}\n{1}".format(case.title, case.summary))
+        # check user.permissions_in(channel) for roles?
+        # Want to use user.dm_channel to send response
+        # Or maybe user.send() ?
+        
+        #await ctx.send(summary)
 
 # Other methods
 
