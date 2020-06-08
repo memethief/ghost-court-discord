@@ -30,7 +30,7 @@ class CaseQueue(object):
         try:
             stream = open(filename, 'r')
         except Exception as e:
-            print("Error encountered parsing case file: {0}".format(filename))
+            debug("Error encountered parsing case file: {0}", filename)
             raise e
 
         with stream as casefile:

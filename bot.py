@@ -11,6 +11,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 GUILD_ID = int(os.getenv('DISCORD_GUILD_ID'))
+CASE_FILE = os.getenv('CASE_FILE')
 
 bot = commands.Bot(command_prefix='!')
 
@@ -29,10 +30,12 @@ async def on_command_error(ctx, error):
         
 ''' Run bot, run! '''
 
+import casequeue
 import bailiff
 import clerk
 import user
 
+casequeue.CaseQueue().load(CASE_FILE)
 bot.add_cog(bailiff.BailiffCog(bot))
 bot.add_cog(clerk.ClerkCog(bot))
 bot.add_cog(user.UserCog(bot))
