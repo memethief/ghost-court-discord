@@ -19,24 +19,24 @@ class RoleQueue(object):
             }
         return RoleQueue.__instance
 
-    def list_user(self, user):
+    def list_user(self, member):
         '''
         Given a user object, list all queues containing the user
         along with their position in each
         '''
-        debug("Listing queues for user: {0}", user)
+        debug("Listing queues for user: {0}", member.name)
         
         listing = []
         for role, q in self.qs.items():
-            if user in q:
+            if member in q:
                 listing.append('- {0}: at most {1} people ahead of you'.format(
-                    role.capitalize(), q.index(user)
+                    role.capitalize(), q.index(member)
                     ))
 
         if len(listing) == 0:
-            listing.append('**{0} is in no queues**'.format(user.mention))
+            listing.append('**{0} is in no queues**'.format(member.mention))
         else:
-            listing.insert(0,'**{0} is in the following queues:**'.format(user.mention))
+            listing.insert(0,'**{0} is in the following queues:**'.format(member.mention))
 
         response = '\n'.join(listing)
         debug('Message to send:')
@@ -63,8 +63,8 @@ class RoleQueue(object):
                 listing.append("{0} queue:".format(role))
 
                 index = 0
-                for user in q:
-                    listing.append("{0}: {1}".format(index, user))
+                for member in q:
+                    listing.append("{0}: {1}".format(index, member.mention))
                     index += 1
 
             message = '\n'.join(listing)
@@ -74,7 +74,7 @@ class RoleQueue(object):
 
         return response
 
-    def add(self, user, roles):
+    def add(self, member, roles):
         '''
         Add a user to a queue or queues
         
@@ -83,7 +83,7 @@ class RoleQueue(object):
         Note that this command does not affect user's current
         place in any queues they have already joined.
         '''
-        debug('Going to enqueue {1} into {0}', roles, user)
+        debug('Going to enqueue {1} into {0}', roles, member)
         response = dict()
 
         if len(roles) == 0:
@@ -99,25 +99,25 @@ class RoleQueue(object):
                 response[role] = "No such role"
                 continue
 
-            if user in q:
-                debug('User {0} already in {1} queue', user, role)
+            if member in q:
+                debug('User {0} already in {1} queue', member.name, role)
                 response[role] = "Already in queue"
                 continue
 
             debug("Appending user to {0} queue", role)
-            q.append(user)
+            q.append(member)
             response[role] = "OK"
 
         debug('Finished adding to queues')
         return response
 
-    def remove(self, user, roles):
+    def remove(self, member, roles):
         '''
         Remove a user from a queue or queues
         
         One may also use aggregate role names here.
         '''
-        debug('Going to dequeue {1} from {0}', roles, user)
+        debug('Going to dequeue {1} from {0}', roles, member.name)
         response = dict()
 
         if len(roles) == 0:
@@ -133,13 +133,13 @@ class RoleQueue(object):
                 response[role] = "No such role"
                 continue
 
-            if not user in q:
-                debug('User {0} not in {1} queue', user, role)
+            if not member in q:
+                debug('User {0} not in {1} queue', member.name, role)
                 response[role] = "Not in queue"
                 continue
             
             debug("Removing user from queue")
-            q.remove(user)
+            q.remove(member)
             response[role] = "OK"
 
         debug('Finished removing from queues')

@@ -1,6 +1,6 @@
 # Bailiff cog
 from discord.ext import commands
-from ghostcourt import debug, debug_obj
+from ghostcourt import debug, debug_obj, resolve_member
 from rolequeue import RoleQueue
 
 class BailiffCog(commands.Cog, name="Bailiff commands"):
@@ -30,11 +30,13 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
         want to move them to the back of a queue you must use 
         !dqser, followed by !qser.
         '''
-        debug('Got request to enqueue {1} for {0}', roles, user)
-        response = ["Adding {0} to roles:".format(user)]
-        for role, status in self.rq.add(user, roles).items():
+        debug('resolving member object...')
+        member = resolve_member(ctx, user)
+        debug('Got request to enqueue {1} for {0}', roles, member.name)
+        response = ["Adding {0} to roles:".format(member.mention)]
+        for role, status in self.rq.add(member, roles).items():
             response.append(" {0}: {1}".format(role, status))
-        response.append("Finished enqueuing {0}".format(user))
+        response.append("Finished enqueuing {0}".format(member.mention))
         await ctx.send("\n".join(response))
     
     @commands.has_role('Bailiff')
@@ -54,11 +56,13 @@ class BailiffCog(commands.Cog, name="Bailiff commands"):
 
         You may also use aggregate role names here.
         '''
-        debug('Got request to dequeue {1} from {0}', roles, user)
-        response = ["Removing {0} from roles:".format(user)]
-        for role, status in self.rq.remove(user, roles).items():
+        debug('resolving member object...')
+        member = resolve_member(ctx, user)
+        debug('Got request to dequeue {1} from {0}', roles, member.name)
+        response = ["Removing {0} from roles:".format(member.mention)]
+        for role, status in self.rq.remove(member, roles).items():
             response.append(" {0}: {1}".format(role, status))
-        response.append("Finished dequeuing {0}".format(user))
+        response.append("Finished dequeuing {0}".format(member.mention))
         await ctx.send("\n".join(response))
     
     @commands.has_role('Bailiff')
