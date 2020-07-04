@@ -127,4 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Sublime Text editor
 .sublime/
+
+# Test resources containing private data
+.private/
