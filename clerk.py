@@ -13,14 +13,14 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
     @commands.has_role('Clerk')
     @commands.command(name='qcase')
     async def enqueue_case(self, ctx):
-    	'''
-    	Add a case to the docket
+        '''
+        Add a case to the docket
 
-    	This command will add a case to the queue, for an upcoming 
-    	hearing. Currently the case chosen is random.
-    	'''
+        This command will add a case to the queue, for an upcoming 
+        hearing. Currently the case chosen is random.
+        '''
         CaseQueue.choose()
-    	pass
+        pass
 
     @commands.has_role('Clerk')
     @commands.command(name='lineup')
@@ -28,14 +28,14 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
         '''
         View the lineup for the next case
         '''
-        lineup = self.roleq.lineup(True)
+        lineup = self.roleq.lineup()
         response = list()
         for role, member in lineup.items():
             if member is None:
                 debug("{0}: {1}", role, member)
                 response.append("{0}: (empty)".format(role))
             else:
-                debug("{0}: {1}", role, member.nick)
-                response.append("{0}: {1}".format(role, member.mention))
+                debug("{0}: {1}", role, member)
+                response.append("{0}: {1}".format(role, member))
 
         await ctx.send("\n".join(response))
