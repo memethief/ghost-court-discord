@@ -7,6 +7,7 @@ from rolequeue import RoleQueue
 class ClerkCog(commands.Cog, name="Clerk commands"):
     def __init__(self, bot):
         self.bot = bot
+        self.caseq = CaseQueue()
         self.roleq = RoleQueue()
         debug("Clerk cog started")
 
@@ -19,7 +20,11 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
         This command will add a case to the queue, for an upcoming 
         hearing. Currently the case chosen is random.
         '''
-        CaseQueue.choose()
+        if self.caseq.choose():
+            debug("successfully chose new case")
+        else:
+            debug("something went wrong")
+
         pass
 
     @commands.has_role('Clerk')
