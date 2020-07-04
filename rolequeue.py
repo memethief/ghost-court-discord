@@ -14,8 +14,8 @@ class RoleQueue(object):
                 'defendant': [],
                 'judge': [],
                 'reporter': [],
-                'clerk': [],
-                'bailiff': []
+                #'clerk': [],
+                #'bailiff': []
             }
         return RoleQueue.__instance
 
@@ -206,17 +206,21 @@ class RoleQueue(object):
         now.
         '''
         debug("figuring out who gets which role")
+        # Create a copy of our dictionary of role queues
         qsc = dict()
         for role, q in self.qs.items():
             qsc[role] = q.copy()
 
+        # First we want to assign the role with the fewest queued 
+        # users. This hopefully helps avoid running out of options 
+        # for a given role
         debug("sorting queues by length")
-        sorted_roles = sorted(qsc.keys(), key=lambda name: len(qsc[name]))
+        sorted_roles = sorted(qsc.keys(), key=lambda rolename: len(qsc[rolename]))
         debug("sorted queues:")
         for role in sorted_roles:
             names = list()
             for member in qsc[role]:
-                names.append(member.name)
+                names.append(member)
             debug("{0}: {1}", role, names)
 
         debug("building dictionary of roles")
@@ -237,7 +241,7 @@ class RoleQueue(object):
                 if chosen in alist:
                     alist.remove(chosen)
 
-            debug("{0} gets the role of {1}", chosen.name, role)
+            debug("{0} gets the role of {1}", chosen, role)
             role_dict[role] = chosen
 
         # done
