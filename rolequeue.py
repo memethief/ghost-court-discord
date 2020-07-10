@@ -221,13 +221,14 @@ class RoleQueue(object):
             names = list()
             for member in qsc[role]:
                 names.append(member)
-            debug("{0}: {1}", role, names)
+                debug("{0}: {1}", role, member)
 
         debug("building dictionary of roles")
         role_dict = dict()
 
         # Start with the shortest role queue
         for role in sorted_roles:
+            debug("assigning {0}...", role)
             if len(qsc[role]) == 0:
                 # if the queue is empty we can't assign the role
                 debug("Nobody in line for {0}", role)
@@ -235,7 +236,8 @@ class RoleQueue(object):
                 continue
 
             # get the chosen member
-            chosen = qsc.get(role).pop()
+            chosen = qsc.get(role).pop(0)
+            debug("... chose {0}", chosen)
             # and remove them from all other queues
             for key, alist in qsc.items():
                 if chosen in alist:

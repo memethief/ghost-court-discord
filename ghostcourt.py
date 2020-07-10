@@ -44,3 +44,28 @@ def resolve_member(ctx, member):
 	if isinstance(found, discord.Member):
 		return found
 	raise Exception("Could not resolve member object from [{0}]".format(member))
+
+def get_role_members(ctx, roles):
+	# Given a list of roles, return all users with any of those roles
+	debug("Looking for members of {0} with roles:\n{1}", ctx.guild, roles)
+	for foundrole in ctx.guild.roles:
+		debug("Found role:  {0}", foundrole.name)
+	
+	found = set()
+
+	for role in filter(lambda r: r.name in roles, ctx.guild.roles):
+		found.update(role.members)
+
+	return found
+
+async def message_roles(ctx, message, roles):
+    '''
+    Given a message and some roles, send the message to any user with one
+    of the given roles.
+    '''
+    debug("Sending message to {0}", roles)
+    members = get_role_members(ctx, roles)
+    debug("Resolved members: {0}", members)
+    for member in members:
+    	debug("Sending to {0}", member.nick)
+    	await member.send(message)
