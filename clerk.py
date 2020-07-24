@@ -3,6 +3,7 @@ from discord.ext import commands
 from ghostcourt import debug, debug_obj, message_roles
 from casequeue import CaseQueue
 from rolequeue import RoleQueue
+from usertimer import PlaintiffTimer
 from court import Court, CourtState
 
 class ClerkCog(commands.Cog, name="Clerk commands"):
@@ -18,7 +19,7 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
         '''
         Add a case to the docket
 
-        This command will add a case to the queue, for an upcoming 
+        This command will add a case to the queue, for an upcoming
         hearing. Currently the case chosen is random.
         '''
         if self.caseq.choose():
@@ -32,9 +33,9 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
     @commands.command(name='next')
     async def next(self, ctx):
         '''
-        Progress to the next stage of the game. 
+        Progress to the next stage of the game.
 
-        The only reason this might fail is if we are trying to load the next 
+        The only reason this might fail is if we are trying to load the next
         case and there is a vacant role.
         '''
         debug("Current state is {0}", Court.state.name)
@@ -69,7 +70,7 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
         Go to the next case
 
         This command will end the current case (if any) and attempt
-        to start the next one. If any roles are vacant, the next 
+        to start the next one. If any roles are vacant, the next
         case will fail to load.
         '''
         response = list()
@@ -138,6 +139,7 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
 
         if Court.state == CourtState.PLAINTIFF:
             # Stop plaintiff timer without notification
+            PlaintiffTimer.cancel()
             pass
         elif Court.state == CourtState.DEFENDANT:
             # Stop defendant timer without notification
@@ -170,6 +172,7 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
             pass
         elif Court.state == CourtState.PLAINTIFF:
             # Notify plaintiff and judge
+            PlaintiffTimer.start()
             pass
         elif Court.state == CourtState.DEFENDANT:
             # Notify defendant and judge
