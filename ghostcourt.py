@@ -48,9 +48,7 @@ def resolve_member(ctx, member):
 def get_role_members(ctx, roles):
 	# Given a list of roles, return all users with any of those roles
 	debug("Looking for members of {0} with roles:\n{1}", ctx.guild, roles)
-	for foundrole in ctx.guild.roles:
-		debug("Found role:  {0}", foundrole.name)
-	
+
 	found = set()
 
 	for role in filter(lambda r: r.name in roles, ctx.guild.roles):

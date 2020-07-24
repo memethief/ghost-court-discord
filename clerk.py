@@ -39,6 +39,7 @@ class ClerkCog(commands.Cog, name="Clerk commands"):
         '''
         debug("Current state is {0}", Court.state.name)
 
+        # Note that the only state transition with a condition is WAITING->ACTIVE
         if Court.state == CourtState.WAITING:
             # We want to make sure that no roles are empty, so we can load a case
             missing = list()
